@@ -1,0 +1,62 @@
+<div class="container main-container ">
+  <form class="formGroup" [formGroup]="urlLinkForm">
+    <div class="row">
+      <div class="col-lg-12 ">
+        <h3 class="text-design">
+          <i class="fa fa-link icon"></i>
+          Summarization from URL
+        </h3>
+        <hr>
+      </div>
+    </div>
+    <div class="row justify-content-center ">
+
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  ">
+        <h4 class="input_heading">
+          <i class="fa fa-bars icon" aria-hidden="true"></i>
+            Input:
+        </h4>
+        <input class="form-control urlstr" type="text" id="urlLink" name="urlLink" formControlName="urlLink" placeholder="Enter the url">
+        <div class="text-danger " *ngIf="urlLink.invalid && (urlLink.dirty || urlLink.touched)" >
+          <i class="fa fa-times-circle icon" aria-hidden="true" ></i>Please enter a valid url for summarization
+        </div>
+        <br>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-align ">
+        <div >
+          <button [disabled]="urlLinkForm.invalid" class="btn btn-outline-success btn-sh btn-item" (click)="summaryUrl()"
+            [ngStyle]="{cursor: urlLinkForm.invalid ? 'no-drop':'pointer'}"  >
+            <i class="fa fa-play icon"></i>
+            Summarize
+          </button>
+          <span *ngIf="flag" class="fa fa-spinner fa-pulse fa-2x fa-fw" style="vertical-align: middle; margin-left: 2px; color: rgb(12, 143, 19);"></span>
+        </div>
+        <br>
+        <div *ngIf="data" >
+          <button [disabled]="urlLinkForm.invalid" class="btn btn-outline-danger btn-sh btn-item" (click)="download()"
+          [ngStyle]="{cursor: urlLinkForm.invalid ? 'no-drop':'pointer'}"  >
+            <i class="fa fa-file-pdf icon"></i>
+            Save as PDF
+          </button>
+        </div>
+        <br>
+        <br>
+
+      </div>
+
+      <div *ngIf="data" class="col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
+        <h4 class="input_heading">
+          <i class="fa fa-bars icon" aria-hidden="true"></i>
+            Output summary:
+            <span style="color: rgb(15, 146, 15);">Time: {{tot_time}}</span>
+        </h4>
+        <textarea class="form-control summarystr" [value]="data" name="smstrUrl" id="test" readonly></textarea>
+        <br>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

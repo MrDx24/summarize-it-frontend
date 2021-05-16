@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="box-shadow: 0 1px 1px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%), 0 4px 4px rgb(0 0 0 / 11%), 0 6px 8px rgb(0 0 0 / 11%), 0 8px 16px rgb(0 0 0 / 11%);">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/images/logo-main.png" width="230px" height="60" class="d-inline-block align-top logo" alt="">
+    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse inline" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ml-auto topnav">
+        <form class="form-inline">
+          <li class="nav-item active li_nav">
+            <a class="nav-link btn btn-block btn-sh" [routerLink]="['/tutorial']">Tutorial</a>
+          </li>
+        </form>
+      </ul>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="navbar-dark bg-dark" style="box-shadow: 0 1px 1px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%), 0 4px 4px rgb(0 0 0 / 11%), 0 6px 8px rgb(0 0 0 / 11%), 0 8px 16px rgb(0 0 0 / 11%);">
+  <div class="container center " >
+    <div class="row" style="height: 40px;"></div>
+    <div class="row ">
+        <!-- <form class="formGroup form-inline"  style="margin-top: 20px; width: 100%; "> -->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <div class="footer_gropumembers" >
+            <h5><i class="fa fa-info-circle ft_icon" aria-hidden="true"></i>About Us</h5>
+            <p class="ul_footer">
+              This is our B.E. Project on Text Summarization using TFIDF and Textrank Algorithm.
+              <br>
+              It summarizes the given data.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <div class="footer_gropumembers">
+            <h5><i class="fa fa-user ft_icon" aria-hidden="true"></i>Project Guide</h5>
+            <ul class="ul_footer">
+              <li class="li_footer">Dr.Sarika Zaware [HOD]</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <div class="footer_gropumembers">
+            <h5><i class="fa fa-users ft_icon" aria-hidden="true"></i>Group members</h5>
+            <ul class="ul_footer">
+              <li class="li_footer">Deep Patadiya</li>
+              <li class="li_footer">Abhishek Gaikwad</li>
+              <li class="li_footer">Sanket Gulhane</li>
+              <li class="li_footer">Akask Thakare</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+          <div class="footer_gropumembers">
+            <h5><i class="fa fa-code ft_icon" aria-hidden="true"></i>Technology used</h5>
+            <ul class="ul_footer">
+              <li class="li_footer">Angular</li>
+              <li class="li_footer">Flask</li>
+              <li class="li_footer">Python</li>
+              <li class="li_footer">Rest API</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- </form> -->
+
+        <div class="container" style="text-align: center; color: gray; font-family: Georgia, 'Times New Roman', Times, serif; padding-bottom: 10px;">
+          <hr style="background-color: white; ">
+          <span>
+            <i class="fa fa-copyright" aria-hidden="true" style="margin-right: 5px;"></i>
+          </span>
+          2020-2021. All rights reserverd by group members.
+        </div>
+
+
+    </div>
+  </div>
+</footer>
+
