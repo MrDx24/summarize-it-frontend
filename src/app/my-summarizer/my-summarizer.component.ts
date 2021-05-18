@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
 import {formatDate } from '@angular/common';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -19,7 +18,7 @@ export class MySummarizerComponent implements OnInit {
   data:string
   tot_time:string
   //placement = 'topRight';
-  sample;
+  sample:boolean;
   selectedMethod: string
   today= new Date();
   todaysDataTime = '';
@@ -29,7 +28,6 @@ export class MySummarizerComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private notification: NzNotificationService
 
   ) { }
 
@@ -46,23 +44,19 @@ export class MySummarizerComponent implements OnInit {
     this.http.post('https://summarize-it-backend.herokuapp.com/summary', this.mainForm.value).subscribe((response: any) => {
 
       this.flag=false
-      console.log(response.data);
+      // console.log(response.data);
       this.data = response.data;
       this.tot_time = response.tot_time
-      console.log(response.tot_time)
-      this.createNotification("success",
-      "Success",
-      "Summary generated successfully.");
+      // console.log(response.tot_time)
+      this.sample=true
       //alert('Summarization Successful');
       //this.onCreateUpdate();
 
 
     }, (error) => {
 
-      console.log(error);
-      this.createNotification("error",
-      "Error",
-      "There is an error in generating summary, please try again later.");
+      // console.log(error);
+      this.sample=false
       //alert('Summarization not Successful');
 
     });
@@ -134,19 +128,6 @@ export class MySummarizerComponent implements OnInit {
     console.log(this.selectedMethod)
   }
 
-
-  createNotification(type: string, title, message): void {
-    this.notification.create(
-      type,
-      title,
-      message,
-      {
-        nzStyle:{
-          marginTop: '100px'
-        }
-      }
-    );
-  }
 
 
   get ogstr() {

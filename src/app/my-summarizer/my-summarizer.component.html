@@ -31,6 +31,26 @@
             <i class="fa fa-play icon"></i>
             Summarize
           </button>
+          <div *ngIf="sample" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <i class="fa fa-link" aria-hidden="true"></i>
+              <strong class="me-auto">Success</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Summary Generated successfully
+            </div>
+          </div>
+          <div *ngIf="!sample" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <i class="fa fa-link" aria-hidden="true"></i>
+              <strong class="me-auto">Success</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Summary Generated successfully
+            </div>
+          </div>
           <span *ngIf="flag" class="fa fa-spinner fa-pulse fa-2x fa-fw" style="vertical-align: middle; margin-left: 2px; color: rgb(12, 143, 19);"></span>
           </div>
         <br>

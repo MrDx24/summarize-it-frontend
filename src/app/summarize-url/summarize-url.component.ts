@@ -2,7 +2,7 @@ import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
+
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -25,7 +25,7 @@ export class SummarizeUrlComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private notification: NzNotificationService
+
     ) { }
 
 
@@ -50,17 +50,13 @@ export class SummarizeUrlComponent implements OnInit {
       this.data=response.data
       this.tot_time=response.tot_time
       console.log(response.tot_time)
-      this.createNotification("success",
-      "Success",
-      "Summary generated successfully.");
+
 
     }, (error) => {
 
       console.log(error);
       console.log("Not done")
-      this.createNotification("error",
-      "Error",
-      "There is an error in generating summary, please try again later.");
+      
 
 
     });
@@ -129,18 +125,7 @@ export class SummarizeUrlComponent implements OnInit {
     console.log("pdf generated!!!!")
   }
 
-  createNotification(type: string, title, message): void {
-    this.notification.create(
-      type,
-      title,
-      message,
-      {
-        nzStyle:{
-          marginTop: '100px'
-        }
-      }
-    );
-  }
+
 
 
   get urlLink() {
